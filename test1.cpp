@@ -3,18 +3,16 @@ using namespace std;
 
 char *buffer = NULL;
 
-void allocateBuffer(){
-	unsigned size;
-	scanf("%u", &size);
-	buffer = (char*) malloc(size);
-
+int main(int argc, char **argv)
+{
+    int size1 = 5;
+    int size2 = size1 + 5;
+    char *dst = malloc(size1); // allocation size is 5 bytes
+    char *src = malloc(size2); // allocation size is 10 bytes
+    if (strcmp(argv, "change") == 0)
+        size1 = 15;
+        
+    memcpy(dst, src, size1);
 }
 
-int main(){
-	cout <<"Hello " <<endl;
-	int a = 3;
-	int b;
-
-	return 0;
-}
 
