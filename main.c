@@ -17,7 +17,8 @@ void main (int argc, char **argv) {
   s = i;
   /* s is -1 so it passes the safety check - CWE-697 */
   if (s > 256) {
-  DiePainfully("go away!\n");
+    //DiePainfully("go away!\n");
+    return 0;
   }
 
   /* s is sign-extended and saved in sz */
@@ -26,7 +27,7 @@ void main (int argc, char **argv) {
   /* output: i=65535, s=-1, sz=4294967295 - your mileage may vary */
   printf("i=%d, s=%d, sz=%u\n", i, s, sz);
 
-  input = GetUserInput("Enter pathname:");
+  input = "Enter pathname:";
 
   /* strncpy interprets s as unsigned int, so it's treated as MAX_INT
   (CWE-195), enabling buffer overflow (CWE-119) */
